@@ -10,21 +10,21 @@ local vision = {
 
 function main()
     while not isSampAvailable() do wait(0) end
-    sampAddChatMessage(Tag .. 'Используйте {FF0000}/vis [night/inf]{FFFFFF}.', -1)
+    sampAddChatMessage(Tag .. 'РСЃРїРѕР»СЊР·СѓР№С‚Рµ {FF0000}/vis [night/inf]{FFFFFF}.', -1)
     sampRegisterChatCommand('vis', function(arg)
         if arg == 'night' and not vision.infrared then
             vision.night = not vision.night
             return setNightVision(vision.night)
         elseif arg == 'night' and vision.infrared then
-            return sampAddChatMessage(Tag .. 'Выключите инфракрасное зрение.', -1)
+            return sampAddChatMessage(Tag .. 'Р’С‹РєР»СЋС‡РёС‚Рµ РёРЅС„СЂР°РєСЂР°СЃРЅРѕРµ Р·СЂРµРЅРёРµ.', -1)
         end
         if arg == 'inf' and not vision.night then
             vision.infrared = not vision.infrared
             return setInfraredVision(vision.infrared)
         elseif arg == 'inf' and not vision.night then
-            return sampAddChatMessage(Tag .. 'Выключите ночное зрение.', -1)
+            return sampAddChatMessage(Tag .. 'Р’С‹РєР»СЋС‡РёС‚Рµ РЅРѕС‡РЅРѕРµ Р·СЂРµРЅРёРµ.', -1)
         end
-        return sampAddChatMessage(Tag .. 'Неверный аргумент. Используйте night или inf.', -1)
+        return sampAddChatMessage(Tag .. 'РќРµРІРµСЂРЅС‹Р№ Р°СЂРіСѓРјРµРЅС‚. РСЃРїРѕР»СЊР·СѓР№С‚Рµ night РёР»Рё inf.', -1)
     end)
     while true do
         wait(-1)
